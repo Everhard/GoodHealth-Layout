@@ -1,1 +1,80 @@
 @import "normalize.css";
+
+.gradient(@color-from, @color-to) {
+    background: @color-from;
+    background: -moz-linear-gradient(top, @color-from 0%, @color-to 100%);
+    background: -webkit-linear-gradient(top, @color-from 0%, @color-to 100%);
+    background: linear-gradient(to bottom, @color-from 0%, @color-to 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{color-from}', endColorstr='@{color-to}',GradientType=0);
+}
+
+@color-top-background: #86c5c5;
+@color-top-border: #75abac;
+@color-top-text: #1e592f;
+
+body > header {
+    position: relative;
+    height: 210px;
+    background: url('../img/grass.png') 0 120px repeat-x;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        .gradient(#8acbcd, #fff);
+        z-index: -1;
+    }
+    
+    .logo {
+        float: left;
+        margin: 27px 0 0 23px;
+    }
+    
+    .information {
+        position: absolute;
+        display: table;
+        height: 20px;
+        line-height: 20px;
+        top: 0;
+        width: 100%;
+        background: @color-top-background;
+        border-bottom: 1px solid @color-top-border;
+        
+        p {
+            display: table-cell;
+            margin: 0;
+            font-size: 13px;
+            font-style: italic;
+            color: @color-top-text;
+            text-align: center;
+            border-right: 1px solid @color-top-border;
+        }
+    }
+    
+    .search {
+        margin: 0 800px 0 340px;
+        padding-top: 65px;
+        
+        input[type=text] {
+            width: 100%;
+        }
+    }
+    
+    .contacts {
+        float: right;
+        margin-top: 45px;
+    }
+    
+    .cabinet-enter-button {
+        float: right;
+        margin: 57px 0 0 0;
+    }
+    
+    .cart-open-button {
+        float: right;
+        margin: 57px 0 0 0;
+    }
+}
