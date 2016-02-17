@@ -1,0 +1,6 @@
+{
+  "name": "goodhealth-layout",
+  "dependencies": {
+    "normalize-css": "normalize.css#^3.0.3"
+  }
+}
