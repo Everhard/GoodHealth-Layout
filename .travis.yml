@@ -5,4 +5,8 @@ before_script:
   - npm install -g grunt-cli
   - npm install -g bower
   - bower install
-script: grunt
+script:
+    - grunt
+after_success:
+    - cd dist/ && tar czvf ../build.tgz .
+    - curl -F $DEPLOY
