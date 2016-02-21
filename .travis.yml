@@ -10,3 +10,5 @@ script:
 after_success:
     - cd dist/ && tar czvf ../build.tgz .
     - curl -F $DEPLOY
+notifications:
+  slack: siteclever:OeC7ciJDdOw6Br58AM7rFHw3
