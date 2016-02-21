@@ -55,11 +55,81 @@ body > header {
     }
     
     .search {
-        margin: 0 800px 0 340px;
-        padding-top: 65px;
+        @search-radius: 5px;
+        @margin-from-top: 60px;
         
-        input[type=text] {
-            width: 100%;
+        position: relative;
+        margin: 0 900px 0 340px;
+        padding-top: @margin-from-top;
+        
+        input {
+            border: none;
+            
+            &[type=text] {
+                width: 100%;
+                height: 20px;
+                padding: 10px 10px 10px 45px;
+                border-top-left-radius: @search-radius;
+                border-bottom-left-radius: @search-radius;
+                background: #F4F2F2 url('../img/icon-search.png') 11px 8px no-repeat;
+                
+                .search-placeholder() {
+                    font-style: italic;
+                    line-height: 20px;
+                    transition: line-height 0.5s ease;
+                }
+                
+                .search-focus-placeholder() {
+                    line-height: 100px;
+                    transition: line-height 0.5s ease;
+                }
+                
+                &::-webkit-input-placeholder {
+                    .search-placeholder;
+                }
+
+                &::-moz-placeholder {
+                    .search-placeholder;
+                }
+
+                &:-moz-placeholder {
+                    .search-placeholder;
+                }
+
+                &:-ms-input-placeholder {
+                    .search-placeholder;
+                }
+                
+                &:focus::-webkit-input-placeholder {
+                    .search-focus-placeholder;
+                }
+
+                &:focus::-moz-placeholder {
+                    .search-focus-placeholder;
+                }
+
+                &:focus:-moz-placeholder {
+                    .search-focus-placeholder;
+                }
+
+                &:focus:-ms-input-placeholder {
+                    .search-focus-placeholder;
+                }
+            }
+
+            &[type=submit] {
+                position: absolute;
+                width: 100px;
+                height: 40px;
+                top: @margin-from-top;
+                right: -155px;
+                border-top-right-radius: @search-radius;
+                border-bottom-right-radius: @search-radius;
+                .gradient(#71ac45, #669748);
+                border: 1px solid #6ba047;
+                box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+                color: #fff;
+            }
         }
     }
     
