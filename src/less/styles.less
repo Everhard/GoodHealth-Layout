@@ -1,4 +1,5 @@
 @import "normalize.css";
+@import url(https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic);
 
 .gradient(@color-from, @color-to) {
     background: @color-from;
@@ -11,6 +12,8 @@
 @color-top-background: #86c5c5;
 @color-top-border: #75abac;
 @color-top-text: #1e592f;
+
+@font-family-main: 'Roboto', sans-serif;
 
 body > header {
     position: relative;
@@ -59,7 +62,7 @@ body > header {
         @margin-from-top: 60px;
         
         position: relative;
-        margin: 0 900px 0 340px;
+        margin: 0 940px 0 340px;
         padding-top: @margin-from-top;
         
         input {
@@ -135,16 +138,51 @@ body > header {
     
     .contacts {
         float: right;
-        margin-top: 45px;
+        margin: 45px 40px 0 0;
+        padding-left: 45px;
+        background: url('../img/icon-phone.png') left 5px no-repeat;
+        font-family: @font-family-main;
+        
+        p {
+            margin: 0;
+            font-size: 20px;
+            color: #404040;
+            
+            &:last-of-type {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+        }
+    }
+    
+    .header-button-style() {
+        float: right;
+        width: 135px;
+        height: 35px;
+        margin: 50px 10px 0 0;
+        padding: 5px 5px 5px 50px;
+        font-family: @font-family-main;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #6d6d6d;
+        border: 5px outset;
+        border-color: #cceeef #add5d3;
     }
     
     .cabinet-enter-button {
-        float: right;
-        margin: 57px 0 0 0;
+        .header-button-style;
+        background: url('../img/icon-cabinet.png') 5px center no-repeat;
     }
     
     .cart-open-button {
-        float: right;
-        margin: 57px 0 0 0;
+        .header-button-style;
+        background: url('../img/icon-cart.png') 5px center no-repeat;
+        
+        span {
+            display: block;
+            font-size: 13px;
+            text-transform: none;
+        }
     }
 }
