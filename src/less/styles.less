@@ -185,4 +185,33 @@ body > header {
             text-transform: none;
         }
     }
+    
+    nav {
+        position: absolute;
+        bottom: 0;
+        height: 48px;
+        width: 100%;
+        .gradient(#71a560, #79b328);
+        overflow: hidden;
+        
+        a {
+            display: block;
+            float: left;
+            padding: 0 15px;
+            line-height: 48px;
+            font-size: 15px;
+            color: #fff;
+            font-family: @font-family-main;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-right: 1px solid #b7de95;
+            
+            &:first-of-type {
+                text-indent: 40px;
+                width: 20px;
+                overflow: hidden;
+                background: url('../img/icon-home.png') center 12px no-repeat;
+            }
+        }
+    }
 }
