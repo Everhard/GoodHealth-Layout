@@ -15,10 +15,19 @@
 
 @font-family-main: 'Roboto', sans-serif;
 
+@small-devices: ~"all and (max-width: 799px)";
+@middle-devices: ~"all and (max-width: 1149px)";
+@large-devices: ~"all and (max-width: 1499px)";
+
+body {
+    min-width: 740px;
+}
+
 body > header {
     position: relative;
     height: 210px;
     background: url('../img/grass.png') 0 120px repeat-x;
+    overflow: hidden;
 
     &:before {
         position: absolute;
@@ -54,10 +63,24 @@ body > header {
             color: @color-top-text;
             text-align: center;
             border-right: 1px solid @color-top-border;
+            
+            &:first-child ~ p {
+                @media @small-devices {
+                    display: none;
+                }  
+            }
         }
     }
     
     .search {
+        @media @large-devices {
+            margin-right: 680px;
+        }
+        
+        @media @middle-devices {
+            opacity: 0;
+        }
+        
         @search-radius: 5px;
         @margin-from-top: 60px;
         
@@ -168,18 +191,36 @@ body > header {
         color: #6d6d6d;
         border: 5px outset;
         border-color: #cceeef #add5d3;
+        overflow: hidden;
+        transition: width 0.3s ease-in-out;
     }
     
     .cabinet-enter-button {
+        @media @large-devices {
+            width: 0;
+            font-size: 0;
+            padding-left: 45px;
+        }
+        
         .header-button-style;
         background: url('../img/icon-cabinet.png') 5px center no-repeat;
     }
     
     .cart-open-button {
+        @media @large-devices {
+            width: 0;
+            font-size: 0;
+            padding-left: 45px;
+        }
+        
         .header-button-style;
         background: url('../img/icon-cart.png') 5px center no-repeat;
         
         span {
+            @media @large-devices {
+                font-size: 0;
+            }
+        
             display: block;
             font-size: 13px;
             text-transform: none;
@@ -187,6 +228,11 @@ body > header {
     }
     
     nav {
+        @media @small-devices {
+            width: 200px;
+            left: -200px;
+        }
+        
         position: absolute;
         bottom: 0;
         height: 48px;
@@ -214,4 +260,43 @@ body > header {
             }
         }
     }
+    
+    .mobile-bar {
+        @media @small-devices {
+            opacity: 1;
+        }
+        
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+        height: 48px;
+        width: 100%;
+        .gradient(#71a560, #79b328);
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        
+        a {
+            display: block;
+            float: left;
+            margin: 5px 0 0 10px;
+            width: 44px;
+            height: 36px;
+            border: 1px solid #aecd9e;
+            border-radius: 3px;
+            background: url('../img/menu.png') no-repeat center center;
+        }
+        
+        input {
+            margin: 7px 0 0 9px;
+            padding: 7px;
+            width: 655px;
+            border: 1px solid #fff;
+            border-radius: 3px;
+        }
+    }
+}
+
+/* After all styles applied */
+.search {
+    transition: margin-right 0.3s ease-in-out, opacity 0.2s ease-in-out;
 }
