@@ -27,12 +27,17 @@ body {
 body > header {
     position: relative;
     height: 210px;
-    background: url('../img/grass.png') 0 120px repeat-x;
+    background: url('../img/grass.png') 0 76% repeat-x;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     
-    @media @extra-small-devices {
-        height: 160px;
+    @media @small-devices {
+        height: 0;
+        padding-top: 27.34375%;
+    }
+    
+    @media all and (max-width: 520px) {
+        padding-top: 150px;
     }
 
     &:before {
@@ -57,12 +62,14 @@ body > header {
             width: 31.4159292%;
         }
         
+        @media @extra-small-devices {
+            top: 50px;
+        }
+        
         img {
             transition: inherit;
             
             @media @small-devices {
-                position: absolute;
-                bottom: 0;
                 width: 100%;
             }
         }
@@ -215,13 +222,11 @@ body > header {
         }
         
         @media @small-devices {
-            top: 45px;
             left: 44.2477876%;
-            font-size: 30px;
         }
         
         @media @extra-small-devices {
-            top: 70px;
+            top: 52px;
         }
 
         p {
@@ -387,6 +392,69 @@ body > header {
             padding: 7px;
             border: 1px solid #fff;
             border-radius: 3px;
+            font-style: italic;
+        }
+    }
+}
+
+.mobile-panel {
+    position: absolute;
+    bottom: 0;
+    display: table;
+    width: 100%;
+    border-top: 1px solid #59824b;
+    .gradient(#72a55f, #7daf35);
+    font-family: @font-family-main;
+    text-transform: lowercase;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+        
+    @media @small-devices {
+        opacity: 1;
+    }
+    
+    a {
+        display: table-cell;
+        height: 20px;
+        padding-top: 8%;
+        font-size: 14px;
+        text-align: center;
+        text-decoration: none;
+        color: #535353;
+        
+        @media @extra-small-devices {
+            padding-top: 38.4px;
+        }
+        
+        &:first-of-type ~ a {
+            border-left: 1px solid #92c264;
+        }
+        
+        &:first-of-type {
+            background: url('../img/mobile-icon-call.png') no-repeat center 10px;
+            background-size: 23%;
+            
+            @media @extra-small-devices {
+                background-size: 35px;
+            }
+        }
+        
+        &:nth-child(2) {
+            background: url('../img/mobile-icon-enter.png') no-repeat center 10px;
+            background-size: 15%;
+            
+            @media @extra-small-devices {
+                background-size: 35px;
+            }
+        }
+        
+        &:last-of-type {
+            background: url('../img/mobile-icon-cart.png') no-repeat center 10px;
+            background-size: 28%;
+            
+            @media @extra-small-devices {
+                background-size: 35px;
+            }
         }
     }
 }
