@@ -34,6 +34,7 @@ body > header {
     @media @small-devices {
         height: 0;
         padding-top: 27.34375%;
+        background: none;
     }
     
     @media all and (max-width: 520px) {
@@ -249,6 +250,12 @@ body > header {
                 font-size: 16px;
             }
             
+            &:nth-child(1),&:nth-child(2) {
+                @media @middle-devices {
+                    letter-spacing: -0.6px;
+                }
+            }
+            
             &:last-of-type {
                 margin-top: 5px;
                 font-size: 14px;
@@ -347,7 +354,9 @@ body > header {
             text-transform: uppercase;
             text-decoration: none;
             border-right: 1px solid #b7de95;
-            
+        }
+        
+        & > a {
             &:first-of-type {
                 text-indent: 40px;
                 width: 20px;
@@ -416,6 +425,7 @@ body > header {
     a {
         display: table-cell;
         height: 20px;
+        width: 33%;
         padding-top: 8%;
         font-size: 14px;
         text-align: center;
@@ -441,7 +451,7 @@ body > header {
         
         &:nth-child(2) {
             background: url('../img/mobile-icon-enter.png') no-repeat center 10px;
-            background-size: 15%;
+            background-size: 24%;
             
             @media @extra-small-devices {
                 background-size: 35px;
@@ -450,7 +460,7 @@ body > header {
         
         &:last-of-type {
             background: url('../img/mobile-icon-cart.png') no-repeat center 10px;
-            background-size: 28%;
+            background-size: 25%;
             
             @media @extra-small-devices {
                 background-size: 35px;
