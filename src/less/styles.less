@@ -12,6 +12,8 @@
 @color-top-background: #86c5c5;
 @color-top-border: #75abac;
 @color-top-text: #1e592f;
+@color-header-lines: #bfbfbf;
+@color-light-lines: #ebebeb;
 
 @font-family-main: 'Roboto', sans-serif;
 
@@ -28,6 +30,8 @@ html {
 body {
     min-width: 320px;
     margin-bottom: 330px;
+    font-family: @font-family-main;
+    font-size: 100%;
     
     @media @middle-devices {
         margin-bottom: 0;
@@ -43,7 +47,7 @@ body > header {
     height: 210px;
     background: url('../img/grass.png') 0 76% repeat-x;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: padding,height 0.3s ease-in-out;
     
     @media @small-devices {
         height: 0;
@@ -226,7 +230,6 @@ body > header {
         margin: 45px 40px 0 0;
         padding-left: 45px;
         background: url('../img/icon-phone.png') left 2px no-repeat;
-        font-family: @font-family-main;
         transition: all 0.3s ease-in-out;
         
         @media @middle-devices {
@@ -291,7 +294,6 @@ body > header {
         height: 35px;
         margin: 50px 10px 0 0;
         padding: 5px 5px 5px 50px;
-        font-family: @font-family-main;
         font-size: 15px;
         text-transform: uppercase;
         text-decoration: none;
@@ -364,7 +366,6 @@ body > header {
             line-height: 48px;
             font-size: 15px;
             color: #fff;
-            font-family: @font-family-main;
             text-transform: uppercase;
             text-decoration: none;
             border-right: 1px solid #b7de95;
@@ -452,7 +453,6 @@ body > header {
     width: 100%;
     border-top: 1px solid #59824b;
     .gradient(#72a55f, #7daf35);
-    font-family: @font-family-main;
     text-transform: lowercase;
     opacity: 0;
     z-index: 1;
@@ -504,6 +504,165 @@ body > header {
             
             @media @extra-small-devices {
                 background-size: 35px;
+            }
+        }
+    }
+}
+
+.sidebar {
+    float: left;
+    width: 295px;
+    padding-left: 10px;
+    
+    @media @small-devices {
+        display: none;
+    }
+    
+    h2 {
+        padding-bottom: 10px;
+        font-size: 1.3em;
+        font-weight: normal;
+        color: #5fa126;
+        margin-bottom: 10px;
+        border-bottom: 1px solid @color-header-lines;
+    }
+    
+    .classification {
+        a {
+            display: block;
+            padding: 7px 0 7px 33px;
+            color: #262a3b;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: "Open Sans", sans-serif;
+            font-size: .9em;
+            border-bottom: 1px solid @color-light-lines;
+            
+            &.by-sickness {
+                background: url('../img/icon-by-sickness.png') no-repeat center left;
+            }
+            
+            &.by-organs {
+                background: url('../img/icon-by-organs.png') no-repeat center left;
+            }
+            
+            &.by-action {
+                background: url('../img/icon-by-action.png') no-repeat center left;
+            }
+            
+            &.by-components {
+                background: url('../img/icon-by-components.png') no-repeat center left;
+            }
+        }
+    }
+    
+    .production {
+        a {
+            display: block;
+            padding: 7px 0 7px 10px;
+            color: #262a3b;
+            text-decoration: none;
+            font-size: .9em;
+            border-bottom: 1px solid @color-light-lines;
+        }
+    }
+}
+
+.content {
+    margin-left: 320px;
+    min-height: 1000px;
+    padding: 0 10px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    
+    @media @small-devices {
+        margin-left: 0;
+    }  
+    
+    h1 {
+        margin-right: 10px;
+        padding-bottom: 10px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 1.3em;
+        color: #5fa126;
+        font-weight: normal;
+        border-bottom: 1px solid @color-header-lines;
+        
+        @media @extra-small-devices {
+            display: none;
+        }
+    }
+    
+    .slider {
+        margin-bottom: 20px;
+        
+        @media @extra-small-devices {
+            display: none;
+        }
+        
+        img {
+            border: 1px solid @color-header-lines;
+            transition: all 0.3s ease-in-out;
+            
+            @media all and (max-width: 1290px) {
+                width: 95%;
+            }
+        }
+    }
+    
+    .classification {
+        display: none;
+        margin-bottom: 20px;
+        
+        h2 {
+            color: #1e592f;
+            font-weight: normal;
+            font-size: 1em;
+            text-align: center;
+        }
+        
+        a {
+            display: block;
+            padding: 5px;
+            color: #5fa126;
+            text-decoration: none;
+            border: 1px solid #5fa126;
+            border-radius: 3px;
+            margin-bottom: 5px;
+            transition: all 0.1s ease-in-out;
+            
+            &:hover {
+                background: #5fa126;
+                color: #fff;
+            }
+        }
+        
+        @media @extra-small-devices {
+            display: block;
+        }
+    }
+    
+    .brands {
+        a {
+            float: left;
+            margin: 10px;
+            
+            @media @small-devices {
+                float: none;
+            }
+            
+            img {
+                @media @small-devices {
+                    width: 28%;
+                }
+                
+                @media @extra-small-devices {
+                    width: 40%;
+                }
+            }
+            
+            &:hover {
+                opacity: 0.8;
             }
         }
     }
