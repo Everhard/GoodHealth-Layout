@@ -369,6 +369,10 @@ body > header {
             text-transform: uppercase;
             text-decoration: none;
             border-right: 1px solid #b7de95;
+            
+            &:hover {
+                background: #6d9d41;
+            }
         }
         
         & > a {
@@ -455,11 +459,12 @@ body > header {
     .gradient(#72a55f, #7daf35);
     text-transform: lowercase;
     opacity: 0;
-    z-index: 1;
+    z-index: -1;
     transition: all 0.3s ease-in-out;
         
     @media @small-devices {
         opacity: 1;
+        z-index: 1;
     }
     
     a {
@@ -511,15 +516,17 @@ body > header {
 
 .sidebar {
     float: left;
-    width: 295px;
-    padding-left: 10px;
+    width: 290px;
+    padding-left: 15px;
     
     @media @small-devices {
         display: none;
     }
     
     h2 {
-        padding-bottom: 10px;
+        height: 26px;
+        margin: 15px 0 10px;
+        padding-bottom: 5px;
         font-size: 1.3em;
         font-weight: normal;
         color: #5fa126;
@@ -537,6 +544,12 @@ body > header {
             font-family: "Open Sans", sans-serif;
             font-size: .9em;
             border-bottom: 1px solid @color-light-lines;
+            transition: all 0.1s ease-in-out;
+            
+            &:hover {
+                padding-left: 38px;
+                color: #000;
+            }
             
             &.by-sickness {
                 background: url('../img/icon-by-sickness.png') no-repeat center left;
@@ -564,6 +577,12 @@ body > header {
             text-decoration: none;
             font-size: .9em;
             border-bottom: 1px solid @color-light-lines;
+            transition: all 0.1s ease-in-out;
+            
+            &:hover {
+                padding-left: 15px;
+                color: #000;
+            }
         }
     }
 }
@@ -580,9 +599,9 @@ body > header {
     }  
     
     h1 {
-        margin-right: 10px;
-        padding-bottom: 10px;
-        font-family: "Open Sans", sans-serif;
+        height: 26px;
+        margin: 15px 10px 15px 0;
+        padding-bottom: 5px;
         font-size: 1.3em;
         color: #5fa126;
         font-weight: normal;
@@ -645,7 +664,8 @@ body > header {
     .brands {
         a {
             float: left;
-            margin: 10px;
+            margin: 10px 20px 10px 0;
+            border: 1px solid #fff;
             
             @media @small-devices {
                 float: none;
@@ -663,6 +683,15 @@ body > header {
             
             &:hover {
                 opacity: 0.8;
+                border-color: #4ba159;
+                border-radius: 5px;
+                box-shadow: 0 7px 15px rgba(59, 55, 43, 0.25);
+                overflow: hidden;
+                
+                @media @small-devices {
+                    border-color: #fff;
+                    box-shadow: none;
+                }
             }
         }
     }
