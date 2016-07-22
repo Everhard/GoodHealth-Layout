@@ -72,4 +72,11 @@ $(document).ready(function() {
     $("body > header nav").on("click", ".additional-menu-button", function() {
         $("body > header nav .wrapper").toggle();
     });
+    
+    $(".catalogue-view select").styler();
+    
+    $(".catalogue-view .view button").click(function() {
+       $(".catalogue-view .view button.selected").removeClass("selected");
+       $(this).addClass("selected");
+    });
 });
