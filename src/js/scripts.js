@@ -77,6 +77,7 @@ $(document).ready(function() {
     
     $(".catalogue-view .view button").click(function() {
        $(".catalogue-view .view button.selected").removeClass("selected");
-       $(this).addClass("selected");
+       $(this).addClass("selected");  
+       $(this).hasClass("list-mode") ? $(".products-list").addClass("list-view") : $(".products-list").removeClass("list-view");
     });
 });

@@ -105,7 +105,7 @@ module.exports = function(grunt) {
 
     // Default task(s).
     grunt.registerTask('styles', ['less', 'postcss', 'cssmin']);
-    grunt.registerTask('scripts', ['concat', 'uglify', 'jshint']);
+    grunt.registerTask('scripts', ['concat', 'uglify']);
     grunt.registerTask('html', ['copy']);
     grunt.registerTask('default', ['html', 'styles', 'scripts']);
 };
