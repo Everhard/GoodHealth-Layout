@@ -811,7 +811,12 @@ body > header {
                 .gradient(#71a560, #79b328);
                 font-size: 1.2em;
                 color: #fff;
-                transition: all 0.1s ease-in-out;
+                transition: left 0.1s ease-in-out, bottom 0.1s ease-in-out, width 0.1s ease-in-out, transform 0.2s ease;
+                display: inline-block;
+                vertical-align: middle;
+                transform: translateZ(0);
+                box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                backface-visibility: hidden;
                 
                 @media all and (max-width: 385px) {
                     padding: 1px 20px;
@@ -820,6 +825,7 @@ body > header {
                 
                 &:hover {
                     background: #6d9d41;
+                    transform: scale(1.05);
                 }
             }
             
