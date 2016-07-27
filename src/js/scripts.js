@@ -73,7 +73,10 @@ $(document).ready(function() {
         $("body > header nav .wrapper").toggle();
     });
     
-    $(".catalogue-view select").styler();
+    /*
+     * Styled forms:
+     */
+    $(".catalogue-view select, .product-card .buy-row input").styler();
     
     $(".catalogue-view .view button").click(function() {
        $(".catalogue-view .view button.selected").removeClass("selected");
