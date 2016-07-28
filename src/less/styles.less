@@ -936,6 +936,8 @@ body > header {
     }
 
     .breadcrumbs {
+        margin-bottom: 20px;
+        
         a {
             position: relative;
             display: inline-block;
@@ -943,7 +945,7 @@ body > header {
             text-decoration: none;
             color: #444;
             
-            &::after {
+            &:after {
                 position: absolute;
                 content: '';
                 top: 1px;
@@ -959,128 +961,229 @@ body > header {
             }
             
             &:last-of-type {
-                &::after {
+                &:after {
                     content: none;
                 }
             }
         }
     }
     
-    .product-card {
-        margin-left: 400px;
-        width: 430px;
-        position: relative;
+    .product {
+        overflow: hidden;
         
-        header {
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            color: #666;
+        .product-image {
+            float: left;
+            margin: 0;
+            width: 375px;
+            text-align: center;
+
+            img {
+                max-width: 100%;
+            }
         }
         
-        .buy-row {
-            .price {
-                font-size: 2em;
-                color: #669933;
+        .product-card {
+            float: left;
+            width: 430px;
+            min-height: 430px;
+
+            @media all and (max-width: 1500px) {
+                margin-left: 35%;
             }
-            
-            form {
-                float: right;
+
+            header {
+                margin-bottom: 10px;
+                font-size: 2.5em;
+                color: #666;
             }
-            
-            .jq-number {
-                float: left;
-                padding-right: 21px;
-            }
-            
-            .jq-number__field {
-                width: 40px;
-                border-radius: 0;
-            }
-            
-            .jq-number__spin {
-                border-radius: 0;
-                width: 20px;
-                height: 15px;
-                
-                &::after {
-                    left: 5px;
+
+            .buy-row {
+                .price {
+                    font-size: 2em;
+                    color: #669933;
+                }
+
+                form {
+                    float: right;
+                }
+
+                .jq-number {
+                    float: left;
+                    padding-right: 21px;
+                }
+
+                .jq-number__field {
+                    width: 40px;
+                    border-radius: 0;
+                }
+
+                .jq-number__spin {
+                    border-radius: 0;
+                    width: 20px;
+                    height: 15px;
+
+                    &:after {
+                        left: 5px;
+                    }
+                }
+
+                button {
+                    float: left;
+                    height: 34px;
+                    padding: 0 15px;
+                    .gradient(#71a560, #79b328);
+                    border: none;
+                    color: #fff;
                 }
             }
-            
-            button {
-                float: left;
-                height: 34px;
-                padding: 0 15px;
-                .gradient(#71a560, #79b328);
-                border: none;
-                color: #fff;
-            }
-        }
-        
-        .buy-in-one-click {
-            float: right;
-            overflow: hidden;
-            
-            .tel {
-                float: left;
-                display: block;
-                border-radius: 4px 0 0 4px;
-                border: 1px solid #71a560;
-                border-right: none;
-                height: 40px;
-                font-size: 1.2em;
-                padding: 0 5px;
-                width: 135px;
-            }
-            
-            button {
-                float: left;
-                border-radius: 0 4px 4px 0;
-                height: 42px;
-                line-height: 14px;
-                margin: 0;
-                padding: 5px 0;
-                width: 145px;
-                color: #fff;
-                text-align: center;
-                vertical-align: middle;
-                cursor: pointer;
-                .gradient(#71a560, #79b328);
-                border: none;
+
+            .buy-in-one-click {
+                float: right;
+                overflow: hidden;
+
+                .tel {
+                    float: left;
+                    display: block;
+                    border-radius: 4px 0 0 4px;
+                    border: 1px solid #71a560;
+                    border-right: none;
+                    height: 40px;
+                    font-size: 1.2em;
+                    padding: 0 5px;
+                    width: 135px;
+                }
+
+                button {
+                    float: left;
+                    border-radius: 0 4px 4px 0;
+                    height: 42px;
+                    line-height: 14px;
+                    margin: 0;
+                    padding: 5px 0;
+                    width: 145px;
+                    color: #fff;
+                    text-align: center;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    .gradient(#71a560, #79b328);
+                    border: none;
+                }
             }
         }
         
         .information {
-            position: absolute;
-            top: 0;
-            right: -340px;
+            float: left;
             width: 300px;
+            margin-left: 40px;
             padding: 10px;
             border-radius: 10px;
             border: 2px solid #669933;
-            
+
             h3 {
                 height: 50px;
                 padding-left: 70px;
                 margin: 0;
                 line-height: 50px;
                 font-weight: normal;
-                
+
                 &.delivery {
                     background: url('../img/icon-delivery.png') left center no-repeat;
                 }
-                
+
                 &.free-delivery {
                     background: url('../img/icon-free-delivery.png') left center no-repeat;
                 }
-                
+
                 &.payment {
                     background: url('../img/icon-payment.png') left center no-repeat;
                 }
             }
-            
+
             ul, p {
                 margin-top: 0;
+            }
+        }
+    }
+    
+    
+    
+    .product-details {
+        min-width: 320px;
+        max-width: 1168px;
+        
+        & > input {
+            display: none;
+            
+            &:checked + label {
+                color: #555;
+                border: 1px solid #ddd;
+                border-top: 1px solid #009933;
+                border-bottom: 1px solid #fff;
+                background: #fff;
+            }
+            
+            &#description:checked ~ .description-tab,
+            &#reviews:checked ~ .reviews-tab {
+                display: block;
+            }
+        }
+        
+        & > label {
+            display: inline-block;
+            margin: 0 0 -1px;
+            padding: 15px 25px;
+            font-weight: 400;
+            text-align: center;
+            color: #aaa;
+            border: 1px solid #ddd;
+            background: #f1f1f1;
+            border-radius: 3px 3px 0 0;
+            
+                            
+            &.description:before {
+                content: "\f05a";
+            }
+
+            &.reviews:before {
+                content: "\f004";
+            }
+            
+            &:before {
+                font-family: fontawesome;
+                font-weight: normal;
+                margin-right: 10px;
+            }
+            
+            &:hover {
+                color: #888;
+                cursor: pointer;
+            }
+        }
+        
+        section {
+            display: none;
+            padding: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            
+            p, ul {
+                animation-duration: 1s;
+                animation-fill-mode: both;
+                animation-name: fadeIn;
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+            }
+            
+            li {
+                padding-left: 5px;
+                margin-bottom: 10px;
             }
         }
     }
