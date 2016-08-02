@@ -608,9 +608,13 @@ body > header {
         color: #5fa126;
         font-weight: normal;
         border-bottom: 1px solid @color-header-lines;
-        
-        @media @extra-small-devices {
-            display: none;
+    }
+    
+    &.frontpage {
+        h1 {
+            @media @extra-small-devices {
+                display: none;
+            }
         }
     }
     
@@ -938,6 +942,10 @@ body > header {
     .breadcrumbs {
         margin-bottom: 20px;
         
+        @media @extra-small-devices {
+            font-size: 1em;
+        }
+        
         a {
             position: relative;
             display: inline-block;
@@ -960,6 +968,12 @@ body > header {
                 text-decoration: underline;
             }
             
+            &:first-of-type {
+                @media @extra-small-devices {
+                    display: none;
+                }
+            }
+            
             &:last-of-type {
                 &:after {
                     content: none;
@@ -976,6 +990,15 @@ body > header {
             margin: 0;
             width: 375px;
             text-align: center;
+            transition: all 0.1s ease-in-out;
+            
+            @media all and (max-width: 1525px) {
+                width: 25%;
+            }
+            
+            @media @extra-small-devices {
+                width: 40%;
+            }
 
             img {
                 max-width: 100%;
@@ -983,38 +1006,96 @@ body > header {
         }
         
         .product-card {
+            position: relative;
             float: left;
             width: 430px;
-            min-height: 430px;
-
-            @media all and (max-width: 1500px) {
-                margin-left: 35%;
+            min-width: 300px;
+            margin-bottom: 20px;
+            
+            @media all and (max-width: 1525px) {
+                width: 30%;
             }
-
+            
+            @media all and (max-width: 1240px) {
+                width: 70%;
+            }
+            
+            @media @extra-small-devices {
+                padding-bottom: 70px;
+                min-height: 220px;
+                min-width: auto;
+                width: 60%;
+            }
+            
             header {
-                margin-bottom: 10px;
                 font-size: 2.5em;
                 color: #666;
+                
+                @media @extra-small-devices {
+                    font-size: 1.4em;
+                    margin-bottom: 5px;
+                }
+            }
+            
+            .rating {
+                margin-bottom: 10px;
+                
+                span {
+                    font-size: 12px;
+                    color: #444;
+                }
             }
 
             .buy-row {
+                width: 100%;
+                
+                @media @extra-small-devices {
+                    position: absolute;
+                    bottom: 0;
+                    left: -58%;
+                    width: 150%;
+                }
+                
                 .price {
                     font-size: 2em;
                     color: #669933;
+                    
+                    @media @extra-small-devices {
+                        display: block;
+                        margin-bottom: 10px;
+                        font-size: 1.5em;
+                    }
                 }
 
                 form {
                     float: right;
+                    
+                    @media @extra-small-devices {
+                        float: left;
+                        width: 100%;
+                    }
                 }
 
                 .jq-number {
                     float: left;
                     padding-right: 21px;
+                    
+                    @media @extra-small-devices {
+                        padding: 0 33px;
+                    }
                 }
 
                 .jq-number__field {
                     width: 40px;
                     border-radius: 0;
+                    
+                    @media @extra-small-devices {
+                        width: 37px;
+                        
+                        input {
+                            text-align: center;
+                        }
+                    }
                 }
 
                 .jq-number__spin {
@@ -1025,7 +1106,46 @@ body > header {
                     &:after {
                         left: 5px;
                     }
+                    
+                    @media @extra-small-devices {
+                        left: 0;
+                        height: 32px;
+                        width: 32px;
+                        
+                        &.plus {
+                            right: 0;
+                            left: auto;
+                            
+                            &:after {
+                                top: 10px;
+                                left: 15px;
+                                width: 2px;
+                                height: 12px;
+                                border: none;
+                                background: #666;
+                            }
+                        }
+                        
+                        &.minus {
+                            &:after {
+                                display: none;
+                            }
+                        }
+                        
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 15px;
+                            left: 10px;
+                            width: 12px;
+                            height: 2px;
+                            border: none;
+                            background: #666;
+                        }
+                    }
                 }
+                
+                
 
                 button {
                     float: left;
@@ -1034,12 +1154,21 @@ body > header {
                     .gradient(#71a560, #79b328);
                     border: none;
                     color: #fff;
+                    
+                    @media @extra-small-devices {
+                        float: right;
+                        font-size: 1.4em;
+                    }
                 }
             }
 
             .buy-in-one-click {
                 float: right;
                 overflow: hidden;
+                
+                @media @extra-small-devices {
+                    display: none;
+                }
 
                 .tel {
                     float: left;
@@ -1078,6 +1207,10 @@ body > header {
             padding: 10px;
             border-radius: 10px;
             border: 2px solid #669933;
+            
+            @media all and (max-width: 1240px) {
+                display: none;
+            }
 
             h3 {
                 height: 50px;
