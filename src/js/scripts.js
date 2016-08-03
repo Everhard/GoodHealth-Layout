@@ -83,4 +83,11 @@ $(document).ready(function() {
        $(this).addClass("selected");  
        $(this).hasClass("list-mode") ? $(".products-list").addClass("list-view") : $(".products-list").removeClass("list-view");
     });
+    
+    /*
+     * Buy in one click:
+     */
+    $(".buy-in-one-click button").click(function() {
+        alert("Спасибо за заказ! Курьер уже выехал!");
+    });
 });

@@ -1158,6 +1158,11 @@ body > header {
                     @media @extra-small-devices {
                         float: right;
                         font-size: 1.4em;
+                        border-radius: 5px;
+                    }
+                    
+                    &:hover {
+                        background: #6d9d41;
                     }
                 }
             }
@@ -1196,6 +1201,10 @@ body > header {
                     cursor: pointer;
                     .gradient(#71a560, #79b328);
                     border: none;
+                    
+                    &:hover {
+                        background: #6d9d41;
+                    }
                 }
             }
         }
@@ -1241,7 +1250,7 @@ body > header {
     
     
     .product-details {
-        min-width: 320px;
+        min-width: 300px;
         max-width: 1168px;
         
         & > input {
@@ -1293,11 +1302,12 @@ body > header {
             }
         }
         
-        section {
+        & > section {
             display: none;
             padding: 15px;
             background: #fff;
             border: 1px solid #ddd;
+            overflow: hidden;
             
             p, ul {
                 animation-duration: 1s;
@@ -1317,6 +1327,155 @@ body > header {
             li {
                 padding-left: 5px;
                 margin-bottom: 10px;
+            }
+        }
+        
+        .leave-review {
+            float: left;
+            width: 50%;
+            
+            @media all and (max-width: 1000px) {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            h3 {
+                font-weight: normal;
+            }
+            
+            .form-group {
+                margin-bottom: 10px;
+                
+                label {
+                    display: inline-block;
+                    width: 60px;
+                }
+                
+                input {
+                    border: 1px solid #aaa;
+                    padding: 5px;
+                    border-radius: 5px;
+                    width: 70%;
+                }
+                
+                &.rating-mark {
+                    img {
+                        margin-left: 10px;
+                    }
+                }
+                
+                textarea {
+                    border: 1px solid #aaa;
+                    padding: 5px;
+                    border-radius: 5px;
+                    width: 70%;
+                    height: 100px;
+                }
+            }
+            
+            input[type=submit] {
+                margin-left: 64px;
+                border-radius: 4px;
+                height: 42px;
+                line-height: 14px;
+                padding: 5px 0;
+                width: 72%;
+                color: #fff;
+                text-align: center;
+                vertical-align: middle;
+                cursor: pointer;
+                .gradient(#71a560, #79b328);
+                border: none;
+
+                &:hover {
+                    background: #6d9d41;
+                }
+            }
+        }
+        
+        .reviews-list {
+            float: right;
+            width: 50%;
+            
+            @media all and (max-width: 1000px) {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            article {
+                position: relative;
+                padding: 15px 10px;
+                padding-left: 170px;
+                border-bottom: 1px solid #ddd;
+                border-left: 1px solid #ddd;
+                
+                @media @extra-small-devices {
+                    padding-left: 10px;
+                    border-left: 0;
+                }
+                
+                &:last-of-type {
+                    border-bottom: none;
+                }
+                
+                &:before {
+                    content: "";
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 15px;
+                    height: 10px;
+                    background: #fff;
+                    z-index: 1;
+                }
+                
+                header {
+                    position: absolute;
+                    width: 130px;
+                    height: 80%;
+                    padding: 10px;
+                    left: 0;
+                    top: 0;
+                    text-align: center;
+                    border-right: 1px solid #ddd;
+                    
+                    @media @extra-small-devices {
+                        display: none;
+                    }
+                    
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: -5px;
+                        width: 10px;
+                        height: 15px;
+                        background: #fff;
+                        z-index: 1;
+                    }
+                }
+                
+                .name {
+                    display: block;
+                    margin: 5px 0 10px;
+                    font-size: 1.1em;
+                    text-align: center;
+                }
+                
+                .review-date {
+                    font-size: 1.1em;
+                }
+                
+                .user-ratng-mark {
+                    font-size: 1.2em;
+                    
+                    img {
+                        margin-left: 10px;
+                        vertical-align: middle;
+                    }
+                }
             }
         }
     }
