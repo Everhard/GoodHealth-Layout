@@ -76,7 +76,7 @@ $(document).ready(function() {
     /*
      * Styled forms:
      */
-    $(".catalogue-view select, .product-card .buy-row input").styler();
+    $(".catalogue-view select, .product-card .buy-row input, #cart-table .quantity input").styler();
     
     $(".catalogue-view .view button").click(function() {
        $(".catalogue-view .view button.selected").removeClass("selected");
