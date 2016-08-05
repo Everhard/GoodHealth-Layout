@@ -29,6 +29,12 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'src/'
             },
+            scripts: {
+                src: 'js/**',
+                dest: 'dist/',
+                expand: true,
+                cwd: 'src/'
+            }
         },
         
         concat: {
