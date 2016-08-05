@@ -12,6 +12,12 @@ module.exports = function(grunt) {
                 cwd: 'src/'
             },
             css : {
+                cwd: "src/css",
+                src: "**/*.css",
+                dest: "dist/css",
+                expand: true
+            },
+            cssBower : {
                 cwd: "bower_components/normalize-css",
                 src: "normalize.css",
                 dest: "dist/css",
@@ -22,7 +28,7 @@ module.exports = function(grunt) {
                 dest: 'dist/',
                 expand: true,
                 cwd: 'src/'
-            }
+            },
         },
         
         concat: {
