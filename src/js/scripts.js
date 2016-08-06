@@ -90,4 +90,19 @@ $(document).ready(function() {
     $(".buy-in-one-click button").click(function() {
         alert("Спасибо за заказ! Курьер уже выехал!");
     });
+    
+    /*
+     * Cabinet navigation:
+     */
+    $(".cabinet-menu a[data-section]").click(function() {
+        var section = $(this).data("section");
+        /*
+         * Remove active classes:
+         */
+        $(".cabinet-section").removeClass('active');
+        $(".cabinet-menu a[data-section]").removeClass('active');
+        
+        $(section).addClass("active");
+        $(this).addClass("active");
+    });
 });

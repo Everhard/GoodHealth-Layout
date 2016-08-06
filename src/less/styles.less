@@ -1775,6 +1775,144 @@ body > header {
     }
 }
 
+/* Cabinet */
+
+.cabinet-menu {
+    float: left;
+    width: 200px;
+    margin-top: 53px;
+    
+    a {
+        display: block;
+        padding: 10px;
+        margin-bottom: 5px;
+        text-decoration: none;
+        color: #4d980f;
+        border: 1px solid #71a560;
+        border-right: none;
+        
+        &:before {
+            font-family: fontawesome;
+            font-weight: normal;
+            margin-right: 10px;
+        }
+        
+        &:hover, &.active {
+            color: #fff;
+            .gradient(#71a560, #79b328);
+        }
+        
+        &.personal-info-button {
+            &:before {
+                content: "\f007";
+            }
+            
+        }
+        
+        &.orders-history-button {
+            &:before {
+                content: "\f07a";
+            }
+        }
+        
+        &.exit-button {
+            &:before {
+                content: "\f0a9";
+            }
+        }
+    }
+}
+
+.cabinet-section {
+    float: left;
+    width: 650px;
+    min-height: 200px;
+    border: 1px solid #79b328;
+    display: none;
+    
+    &.active {
+        display: block;
+    }
+    
+    header {
+        min-height: 32px;
+        padding: 10px;
+        .gradient(#71a560, #79b328);
+        color: #fff;
+        overflow: hidden;
+        
+        h2 {
+            float: left;
+            font-size: 1.1em;
+            font-weight: normal;
+            margin: 7px 0 0;
+        }
+        
+        p {
+            float: right;
+            margin: 0;
+            
+            span {
+                display: inline-block;
+                border: 1px solid #fff;
+                border-radius: 4px;
+                padding: 5px;
+                font-size: 1.1em;
+                background: #79b328;
+            }
+        }
+    }
+    
+    .personal-info {
+        padding: 10px 10px 30px;
+        
+        form {
+            margin-bottom: 15px;
+            
+            .form-group {
+                margin-bottom: 10px;
+
+                label {
+                    display: inline-block;
+                    width: 200px;
+                }
+
+                input {
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 5px;
+                    width: 250px;
+                    color: #777;
+                }
+            }
+            
+            input[type=submit] {
+                padding: 10px 15px;
+                width: 260px;
+                font-size: 1em;
+                margin-left: 204px;
+                .gradient(#71a560, #79b328);
+                text-decoration: none;
+                border: 0;
+                border-radius: 4px;
+                color: #fff;
+
+                &:hover {
+                    background: #6d9d41;
+                }
+            }
+        }
+        
+        p {
+            padding: 5px 0;
+            margin: 0 0 15px;
+            font-size: 1.1em;
+            border-bottom: 1px dotted #ddd;
+        }
+    }
+    
+}
+
 body > footer {
     position: absolute;
     bottom: 0;
