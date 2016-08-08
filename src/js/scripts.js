@@ -104,5 +104,7 @@ $(document).ready(function() {
         
         $(section).addClass("active");
         $(this).addClass("active");
+        
+        return false;
     });
 });
