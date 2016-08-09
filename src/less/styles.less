@@ -2009,6 +2009,75 @@ body > header {
     
 }
 
+#registration-form {
+    width: 600px;
+    padding: 20px 20px 30px;
+    .gradient(#71a560, #79b328);
+    border: 10px solid #79b328;
+    border-radius: 4px;
+    color: #fff;
+    
+    @media all and (max-width: 975px) {
+        width: 85%;
+    }
+    
+    header {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        color: #fff;
+        font-size: 1.3em;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    label {
+        display: inline-block;
+        width: 170px;
+        margin-bottom: 5px;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+        
+        input {
+            width: 50%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            border: 2px solid #71a560;
+            color: #444;
+            
+            @media all and (max-width: 830px) {
+                width: 95%;
+            }
+        }
+        
+        &.password {
+            margin-top: 30px;
+        }
+    }
+    
+    input[type=submit] {
+        margin-top: 10px;
+        padding: 10px 20px;
+        margin-left: 174px;
+        background: #fff;
+        text-decoration: none;
+        border: 1px solid #71a560;
+        border-radius: 4px;
+        color: #444;
+        
+        @media all and (max-width: 830px) {
+            margin-left: 0;
+        }
+        
+        &:hover {
+            background: #6d9d41;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+    }
+}
+
 body > footer {
     position: absolute;
     bottom: 0;
