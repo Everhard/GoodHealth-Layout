@@ -84,6 +84,30 @@ $(document).ready(function() {
        $(this).hasClass("list-mode") ? $(".products-list").addClass("list-view") : $(".products-list").removeClass("list-view");
     });
     
+    /* Header buttons */
+    $(".cabinet-enter-button").click(function() {
+        $("[class^=modal-]:visible").hide();
+        $(".modal-login").fadeIn(400);
+        return false;
+    });
+    
+    $(".remember-button").click(function() {
+        $("[class^=modal-]:visible").hide();
+         $(".modal-remember").show();
+        return false;
+    });
+    
+    $(".registration-button").click(function() {
+        $("[class^=modal-]:visible").hide();
+        $(".modal-registration").show();
+        return false;
+    });
+    
+    /* Modal close buttons */
+    $("[class^=modal-] header .close").click(function() {
+        $(this).parent().parent().fadeOut(400);
+    });
+    
     /*
      * Buy in one click:
      */
