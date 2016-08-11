@@ -375,7 +375,7 @@ body > header {
             border-right: 1px solid #b7de95;
             
             &:hover {
-                background: #6d9d41;
+                background-color: #6d9d41;
             }
         }
         
@@ -393,8 +393,9 @@ body > header {
             position: fixed;
             top: 220px;
             right: 10px;
-            width: 210px;
+            width: 250px;
             border: 1px solid #999;
+            border-radius: 4px;
             background: #fff;
             z-index: 1;
             
@@ -405,12 +406,48 @@ body > header {
                 line-height: 18px;
                 color: #336666;
                 border-bottom: 1px solid #ccc;
+                
+                &:hover {
+                    color: #fff;
+                }
+                
+                &:first-of-type {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: -22px;
+                        right: 20px;
+                        border: 11px solid transparent;
+                        border-bottom-color: #000;
+                    }
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: -22px;
+                        right: 20px;
+                        border: 11px solid transparent;
+                        border-bottom-color: #fff;
+                    }
+                    
+                    &:hover {
+                        &:after {
+                            border-bottom-color: #6d9d41;
+                        }
+                    }
+                }
             }
         }
         
         .additional-menu-button {
-            background: url('../img/icon-more.png') center no-repeat;
             height: 100%;
+            width: 15px;
+            
+            &:before {
+                content: "\f0c9";
+                font-family: fontawesome;
+                font-size: 1em;
+            }
         }
     }
     
