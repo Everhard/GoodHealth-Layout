@@ -40,7 +40,7 @@
         var currentHideIndex = 0;
         
         var update = function() {
-            if (goodMenu.width() < navMenuWidth) {
+            if (goodMenu.width() > 767 && goodMenu.width() < navMenuWidth) {
 
                 var widthSearch = navMenuWidth;
 
