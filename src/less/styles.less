@@ -528,13 +528,29 @@ body > header {
         
         a {
             display: block;
+            position: relative;
             float: left;
             margin: 5px 0 0 10px;
             width: 44px;
             height: 36px;
             border: 1px solid #aecd9e;
             border-radius: 3px;
-            background: url('../img/menu.png') no-repeat center center / 65% auto;
+            color: #fff;
+            text-decoration: none;
+            
+            &:before {
+                position: absolute;
+                top: 4px;
+                left: 10px;
+                content: "\f0c9";
+                font-family: fontawesome;
+                line-height: 1;
+                font-size: 1.7em;
+            }
+            
+            &:hover {
+                background-color: #6d9d41;
+            }
         }
         
         form {

@@ -11,6 +11,8 @@
          * Menu width:
          */ 
         var navMenuWidth = 0;
+        var additionalMenuButtonWidth = 0;
+        var navMenuMinWidth = 767;
         
         var properties = [
             "width",
@@ -40,7 +42,13 @@
         var currentHideIndex = 0;
         
         var update = function() {
-            if (goodMenu.width() > 767 && goodMenu.width() < navMenuWidth) {
+
+            if (goodMenu.width() > navMenuMinWidth && goodMenu.width() < navMenuWidth) {
+                
+                if (goodMenu.find(".additional-menu-button").length === 0)  {
+                    goodMenu.append("<a href='#' class='additional-menu-button'></a>");
+                    additionalMenuButtonWidth = goodMenu.find(".additional-menu-button").innerWidth();
+                }
 
                 var widthSearch = navMenuWidth;
 
@@ -48,13 +56,9 @@
 
                     widthSearch -= itemsWidth[i];
 
-                    if (goodMenu.width() > widthSearch) {
+                    if (goodMenu.width() > widthSearch + additionalMenuButtonWidth) {
                         if (currentHideIndex !== i) {
 
-                            if (goodMenu.find(".additional-menu-button").length === 0)  {
-                                goodMenu.append("<a href='#' class='additional-menu-button'></a>");
-                                navMenuWidth += 45; // More button
-                            }
 
                             goodMenu.find(".wrapper a").unwrap();
                             goodMenu.find("a:nth-child(" + i + ") ~ a[class!=additional-menu-button]").wrapAll("<div class='wrapper' />");
@@ -68,7 +72,6 @@
                 currentHideIndex = 0;
                 goodMenu.find(".wrapper a").unwrap();
                 goodMenu.find(".additional-menu-button").remove();
-                navMenuWidth -= 45; // More button
             }
         };
 
