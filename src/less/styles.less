@@ -356,7 +356,6 @@ body > header {
         height: 48px;
         width: 100%;
         .gradient(#71a560, #79b328);
-        overflow: hidden;
         
         @media @small-devices {
             position: fixed;
@@ -364,13 +363,23 @@ body > header {
             height: auto;
             left: -230px;
             background: transparent;
-            z-index: 1;
+            z-index: 110;
             transition: all 0.3s ease-in-out;
         }
         
         &.active {
             @media @small-devices {
                 left: 0;
+            }
+        }
+        
+        &.fixed {
+            @media all and (min-width: 768px) {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 110;
             }
         }
         
@@ -524,6 +533,16 @@ body > header {
         
         @media @small-devices {
             opacity: 1;
+        }
+        
+        &.fixed {
+            @media @small-devices {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 110;
+            }
         }
         
         a {
@@ -2300,7 +2319,7 @@ body > header {
     font-weight: lighter;
     background: #fff;
     box-shadow: 0 3px 5px rgba(50,50,50,0.3);
-    z-index: 1;
+    z-index: 110;
     
     &:before {
         content: '';

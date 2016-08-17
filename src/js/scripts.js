@@ -30,7 +30,8 @@ $(document).ready(function() {
     });
     
     /* Modal close buttons */
-    $("[class^=modal-] header .close").click(function() {
+    $("[class^=modal-] header .close").click(function(e) {
+        e.preventDefault();
         $(this).parent().parent().fadeOut(400);
     });
     
@@ -62,7 +63,7 @@ $(document).ready(function() {
      * Mobile menu:
      */
     $(".mobile-bar a").click(function() {
-        var menu = $("body > header nav");
+        var menu = $("#js-nav");
         if (!menu.hasClass('active') && !menu.hasClass('hiding')) {
             menu.css("top", $(".mobile-bar").offset().top + $(".mobile-bar").outerHeight() - $(window).scrollTop());
             menu.addClass("active");
@@ -71,7 +72,7 @@ $(document).ready(function() {
     });
     
     $(document).mouseup(function (e) {
-        var menu = $("body > header nav");
+        var menu = $("#js-nav");
         if (menu.hasClass('active')) {
             if (menu.has(e.target).length === 0){
                 menu.addClass("hiding");
@@ -83,9 +84,42 @@ $(document).ready(function() {
             }
         }
     });
+   
     
+    /*
+     * Activate dynamic menu:
+     */
+    $("#js-nav").goodMenu();
+    
+    /*
+     * Fixed menu (desktops):
+     */
+    $(document).on("scroll", function() {
+        var headerH = $("#js-header").height() - $("#js-nav").height();
+        if ($(this).scrollTop() > headerH) {
+            $("#js-nav").addClass("fixed");
+        } else {
+            $("#js-nav").removeClass("fixed");
+        }
+    });
+    
+    /*
+     * Fixed menu (mobiles):
+     */
+    $(document).on("scroll", function() {
+        var mobileHeaderH = $("#js-header").innerHeight() - $("#js-mobile-bar").height();
+        if ($(this).scrollTop() > mobileHeaderH) {
+            $("#js-mobile-bar").addClass("fixed");
+        } else {
+            $("#js-mobile-bar").removeClass("fixed");
+        }
+    });
+    
+    /*
+     * Hide menu when scroll:
+     */
     $(document).scroll(function() {
-        var menu = $("body > header nav");
+        var menu = $("#js-nav");
         if (menu.hasClass('active')) {
             setTimeout(function() {
                 menu.removeAttr('style');
@@ -93,6 +127,4 @@ $(document).ready(function() {
             menu.removeClass("active");
         }
     });
-    
-    $("body > header nav").goodMenu();
 });

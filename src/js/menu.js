@@ -80,10 +80,28 @@
         // First time start:
         update();
 
-        goodMenu.on("click", ".additional-menu-button", function() {
+        /*
+         * Additional dynamic menu toggle:
+         */
+        goodMenu.on("click", ".additional-menu-button", function(e) {
+            
+            e.preventDefault();
+            
+            var headerH = $("#js-header").height();
+            var menuH = $("#js-nav").height();
+            var documentScroll = $(document).scrollTop();
+            var additionalMenuTop;
+            
+            if (documentScroll < headerH - menuH) {
+                    additionalMenuTop = headerH - documentScroll;
+            } else {
+                additionalMenuTop = menuH;
+            }
+            
             var wrapper = goodMenu.find(".wrapper");
-            wrapper.css("top", 220 - $(window).scrollTop()).toggle();
-            return false;
+            wrapper.css({
+                "top"  : additionalMenuTop + 10
+            }).toggle();
         });
         
         $(document).mouseup(function (e) {
@@ -93,7 +111,10 @@
             }
         });
         
-        $(document).scroll(function() {
+        /*
+         * Hide menu when scroll:
+         */
+        $(document).on("scroll", function() {
            var container = goodMenu.find(".wrapper");
            container.fadeOut(300);
         });
