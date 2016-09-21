@@ -1,0 +1,232 @@
+.cabinet-menu {
+    float: left;
+    width: 200px;
+    margin-top: 53px;
+    
+    @media all and (max-width: 1195px) {
+        float: none;
+        width: auto;
+        margin-top: 0;
+    }
+    
+    a {
+        display: block;
+        padding: 10px;
+        margin-bottom: 5px;
+        text-decoration: none;
+        color: #4d980f;
+        border: 1px solid #71a560;
+        border-right: none;
+        
+        @media all and (max-width: 1195px) {
+            display: inline-block;
+            border-right: 1px solid #71a560;
+        }
+        
+        @media all and (max-width: 515px) {
+            display: block;
+        }
+        
+        &:before {
+            font-family: fontawesome;
+            font-weight: normal;
+            margin-right: 10px;
+        }
+        
+        &:hover {
+            border-color: #444;
+        }
+        
+        &.active {
+            color: #fff;
+            position: relative;
+            .gradient(#71a560, #79b328);
+            
+            &:after {
+                content: '';
+                position: absolute;
+                top: 10px;
+                right: -1px;
+                border: 10px solid transparent;
+                border-right-color: #fff;
+                
+                @media all and (max-width: 1195px) {
+                    content: none;
+                }
+            }
+        }
+        
+        &.personal-info-button {
+            &:before {
+                content: "\f007";
+            }
+            
+        }
+        
+        &.orders-history-button {
+            &:before {
+                content: "\f07a";
+            }
+        }
+        
+        &.exit-button {
+            &:before {
+                content: "\f0a9";
+            }
+        }
+    }
+}
+
+.cabinet-section {
+    float: left;
+    width: 650px;
+    min-height: 200px;
+    border: 1px solid #79b328;
+    display: none;
+    
+    @media all and (max-width: 980px) {
+        width: 100%;
+    }
+    
+    &#orders-history header h2 {
+        @media all and (max-width: 420px) {
+            display: none;
+        }
+    }
+    
+    &.active {
+        display: block;
+    }
+    
+    header {
+        min-height: 32px;
+        padding: 10px;
+        .gradient(#71a560, #79b328);
+        color: #fff;
+        overflow: hidden;
+        
+        h2 {
+            float: left;
+            font-size: 1.1em;
+            font-weight: normal;
+            margin: 7px 0 0 10px;
+        }
+        
+        p {
+            float: right;
+            margin: 0 10px 0 0;
+            
+            @media all and (max-width: 420px) {
+                float: left;
+            }
+            
+            span {
+                display: inline-block;
+                border: 1px solid #fff;
+                border-radius: 4px;
+                padding: 5px;
+                font-size: 1.1em;
+                background: #79b328;
+            }
+        }
+    }
+    
+    .personal-info {
+        padding: 10px 10px 30px;
+        
+        form {
+            margin-bottom: 15px;
+            
+            .form-group {
+                margin-bottom: 10px;
+
+                label {
+                    display: inline-block;
+                    margin-bottom: 5px;
+                    width: 200px;
+                }
+
+                input {
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 5px;
+                    width: 250px;
+                    background: #f6f6f6;
+                    color: #777;
+                    
+                    @media all and (max-width: 840px) and (min-width: 767px) {
+                        width: 90%;
+                    }
+                    
+                    @media all and (max-width: 515px) {
+                        width: 90%;
+                    }
+                }
+            }
+            
+            input[type=submit] {
+                padding: 10px 5px;
+                box-sizing: content-box;
+                width: 250px;
+                font-size: 1em;
+                margin-left: 204px;
+                .gradient(#71a560, #79b328);
+                text-decoration: none;
+                border: 1px solid #79b328;
+                border-radius: 4px;
+                color: #fff;
+                
+                @media all and (max-width: 840px) and (min-width: 767px) {
+                    margin-left: 0;
+                    width: 90%;
+                }
+                
+                @media all and (max-width: 515px) {
+                    margin-left: 0;
+                    width: 90%;
+                }
+
+                &:hover {
+                    background: #6d9d41;
+                }
+            }
+        }
+        
+        p {
+            padding: 5px 0;
+            margin: 0 0 15px;
+            font-size: 1.1em;
+            border-bottom: 1px dotted #ddd;
+        }
+    }
+    
+    .orders-history {
+        width: 100%;
+        text-align: center;
+        
+        @media @extra-small-devices {
+            font-size: .8em;
+        }
+        
+        thead {
+            tr {
+                border-bottom: 2px solid #ccc;
+            }
+        }
+        
+        tr {
+            border-bottom: 1px solid #ccc;
+            
+            &:hover {
+                background: #ffe;
+            }
+            
+            td {
+                padding: 15px 10px;
+                border-right: 1px solid #ccc;
+            }
+        }
+    }
+    
+}
+

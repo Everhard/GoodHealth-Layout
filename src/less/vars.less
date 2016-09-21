@@ -1,0 +1,133 @@
+@color-top-background: #86c5c5;
+@color-top-border: #75abac;
+@color-top-text: #1e592f;
+@color-header-lines: #bfbfbf;
+@color-light-lines: #ebebeb;
+
+@font-family-main: 'Roboto', sans-serif;
+
+@large-devices: ~"all and (max-width: 1499px)";
+@middle-devices: ~"all and (max-width: 1149px)";
+@small-devices: ~"all and (max-width: 767px)";
+@extra-small-devices: ~"all and (max-width: 460px)";
+
+
+.gradient(@color-from, @color-to) {
+    background: @color-from;
+    background: -moz-linear-gradient(top, @color-from 0%, @color-to 100%);
+    background: -webkit-linear-gradient(top, @color-from 0%, @color-to 100%);
+    background: linear-gradient(to bottom, @color-from 0%, @color-to 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{color-from}', endColorstr='@{color-to}',GradientType=0);
+}
+
+.goodhealth-button() {
+    padding: 10px 20px;
+    box-sizing: content-box;
+    font-size: 1em;
+    .gradient(#71a560, #79b328);
+    text-decoration: none;
+    border: 1px solid #79b328;
+    border-radius: 4px;
+    color: #fff;
+
+    &:hover {
+        background: #6d9d41;
+    }
+}
+
+.goodhealth-box() {
+    margin-bottom: 30px;
+    padding: 10px 20px 20px;
+    border: 1px solid #d2d6de;
+    border-top: 3px solid #79b328;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    
+    header {
+        margin-bottom: 20px;
+        padding: 10px 5px 15px;
+        border-bottom: 1px solid #d2d6de;
+        font-size: 1.2em;
+        color: #444;
+    }
+}
+
+.goodhealth-modal() {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -175px;
+    margin-top: -200px;
+    width: 290px;
+    padding: 30px;
+    border: 1px solid #669933;
+    border-radius: 7px;
+    color: #333;
+    font-weight: lighter;
+    background: #fff;
+    box-shadow: 0 3px 5px rgba(50,50,50,0.3);
+    z-index: 110;
+    
+    &:before {
+        content: '';
+        position: fixed;
+        background: rgba(255,255,255,0.4);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    
+    header {
+        font-size: 1.6em;
+        margin-bottom: 25px;
+        
+        .close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            text-decoration: none;
+            color: #333;
+
+            &:before {
+                content: "\f00d";
+                font-family: fontawesome;
+                font-weight: normal;
+                font-size: 25px;
+            }
+            
+            &:hover {
+                color: #4d980f;
+            }
+        }
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        
+        input:not([type=submit]) {
+            width: 100%;
+            height: 40px;
+            padding: 0 5px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            box-shadow: inset 1px 0 0 #e4e4e4;
+            border: 1px solid #d9d9d9;
+            color: #555;
+        }
+        
+        input[type=submit] {
+            float: left;
+            .goodhealth-button;
+        }
+    }
+}

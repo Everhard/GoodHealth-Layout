@@ -70,7 +70,7 @@ module.exports = function(grunt) {
         
         less: {
             dist: {
-                src: 'src/less/**/*.less',
+                src: 'src/less/styles.less',
                 dest: 'dist/css/styles.css'
             }
         },
